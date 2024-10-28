@@ -6,13 +6,14 @@
 #include "GameFramework/GameModeBase.h"
 #include "SamuraiGameGameMode.generated.h"
 
-UCLASS(minimalapi)
-class ASamuraiGameGameMode : public AGameModeBase
+UCLASS()
+class SAMURAIGAME_API ASamuraiGameGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
-	ASamuraiGameGameMode();
+	
+	virtual void PawnKilled(APawn* PawnKilled);
 };
 
 
