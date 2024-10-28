@@ -1,11 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "SamuraiGameGameMode.h"
-#include "SamuraiGameCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-ASamuraiGameGameMode::ASamuraiGameGameMode()
+void ASamuraiGameGameMode::PawnKilled(APawn* PawnKilled)
 {
+<<<<<<< Updated upstream
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/SamuraiGame/BP_SamuraiCharacter"));
 	if (PlayerPawnBPClass.Class != NULL)
@@ -18,3 +18,7 @@ ASamuraiGameGameMode::ASamuraiGameGameMode()
 		}
 	}
 }
+=======
+	
+}
+>>>>>>> Stashed changes
