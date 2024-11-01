@@ -4,6 +4,8 @@
 
 #include "InputActionValue.h"
 #include "CoreMinimal.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Character.h"
 #include "SamuraiCharacter.generated.h"
 
@@ -22,7 +24,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 
 	UFUNCTION(BlueprintPure)
 	bool IsDead() const;
@@ -39,21 +41,25 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 	// Handles attacking
-
 	void Attack();
+
+	void TargetLock();
 
 private:
 	//Setting up inputs. Mapping context and Input Action variables, to be set in Blueprint
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input", meta = (AllowPrivateAccess = "true"))
-	class UInputMappingContext *InputMapping;
+	class UInputMappingContext* InputMapping;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input", meta = (AllowPrivateAccess = "true"))
-	class UInputAction *InputMove;
+	class UInputAction* InputMove;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input", meta = (AllowPrivateAccess = "true"))
-	class UInputAction *InputLook;
+	class UInputAction* InputLook;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input", meta = (AllowPrivateAccess = "true"))
-	class UInputAction *InputJump;
+	class UInputAction* InputJump;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input", meta = (AllowPrivateAccess = "true"))
-	class UInputAction *InputShoot;
+	class UInputAction* InputShoot;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enhanced Input", meta = (AllowPrivateAccess = "true"))
+	class UInputAction* InputTargetLock;
 
 	// Handles move input
 	void Move(const FInputActionValue& Value);
@@ -75,4 +81,13 @@ private:
 	UPROPERTY()
 	AKatana* Katana;
 
+	UPROPERTY()
+	AActor* TargetLockActor;
+
+	/* Camera */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* Camera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	USpringArmComponent* SpringArm;
 };
