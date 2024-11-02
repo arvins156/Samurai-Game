@@ -24,10 +24,10 @@ void ASamuraiCharacter::BeginPlay()
 	
 	Health = MaxHealth;
 
-	Katana = GetWorld()->SpawnActor<AKatana>(KatanaClass);
-	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
-	Katana->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
-	Katana->SetOwner(this);
+	//Katana = GetWorld()->SpawnActor<AKatana>(KatanaClass);
+	//GetMesh()->HideBoneByName(TEXT(""), EPhysBodyOp::PBO_None);
+	//Katana->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetIncludingScale, TEXT("RightHand"));
+	//Katana->SetOwner(this);
 }
 
 bool ASamuraiCharacter::IsDead() const

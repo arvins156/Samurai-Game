@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "Katana.generated.h"
 
 UCLASS()
@@ -30,7 +31,7 @@ private:
 	USceneComponent* Root;
 
 	UPROPERTY(VisibleAnywhere)
-	USkeletalMeshComponent* Mesh;
+	UStaticMeshComponent* Mesh;
 
 	UPROPERTY(EditAnywhere)
 	UParticleSystem *MuzzleFlash;
