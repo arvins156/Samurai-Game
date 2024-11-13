@@ -65,6 +65,9 @@ void ASamuraiCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	// Get the EnhancedInputComponent
 	UEnhancedInputComponent* PlayerEIComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
 
+	
+
+	
 	if (PlayerEIComponent != nullptr) {
 
 	// Bind the actions
